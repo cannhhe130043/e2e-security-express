@@ -27,9 +27,7 @@
 ```
 
 ### Note: 
-<div class="text-red mb-2">
   - Fake server response and server response run on the same port
-</div>
 
 ### To run test ping:
 ```bash
