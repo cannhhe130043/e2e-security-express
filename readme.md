@@ -1,8 +1,13 @@
-<p style="color: green"> cd your-project </p>
 
-to start server request:
-    cd server/server-request </br>
+```bash
+cd your-project
+```
+
+##to start server request:
+```bash
+    cd server/server-request 
     tsnd src/server.ts 
+```
 
 to start server response:
     cd server/server-response </br>
