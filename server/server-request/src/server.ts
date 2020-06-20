@@ -45,7 +45,8 @@ app.get('/getData', async (req: Request, res: Response) => {
             Data: data
         })
     } catch (e) {
-        throw new Error(e)
+        console.log(e.message)
+        res.send(e)
     }
 })
 
