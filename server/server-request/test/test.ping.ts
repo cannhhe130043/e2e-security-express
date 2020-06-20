@@ -6,7 +6,7 @@ const ping = () => {
     setInterval(async () => {
         const response = await fetch(url, { method: 'GET' })
         const data = await response.json()
-        console.log(data)       
+        console.log(data)
     }, 3000)
 }
 
