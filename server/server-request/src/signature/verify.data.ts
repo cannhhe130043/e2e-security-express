@@ -1,11 +1,10 @@
-import { verify, constants } from 'crypto'
-import { readFileSync } from 'fs'
+import { verify } from 'crypto'
 import dotenv from 'dotenv'
+import { readFileSync } from 'fs'
 
 dotenv.config()
 
-export const verifyData = (data: any, signature: string) => {
-    const publicKey = readFileSync('src/keyPair/public.key.txt', 'utf-8')
+export const verifyData = (data: any, signature: string, publicKey: string) => {
     const isVerified = verify(
         'sha256',
         Buffer.from(data),
