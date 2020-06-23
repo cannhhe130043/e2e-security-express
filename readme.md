@@ -26,11 +26,3 @@
     tsnd src/server.ts
 ```
 
-### Note: 
-  - Fake server response and server response run on the same port
-
-### To run test ping:
-```bash
-    cd server/server-request 
-    tsnd test/test.ping.ts
-```
