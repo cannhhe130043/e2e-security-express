@@ -3,6 +3,7 @@ import fetch from 'node-fetch'
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
 import { json } from 'body-parser'
+import chalk, {} from 'chalk'
 
 type JsonBodyType = {
     data: any,
@@ -25,7 +26,7 @@ app.post('/', async (req: Request, res: Response) => {
         const response = await fetch(process.env.GET_PUBLIC_KEY_URL || 'http://localhost:4000/getPublicKey', { method : 'GET' })
         const {publicKey} = await response.json()   
         const { data, time } = jwt.verify(token, publicKey, { algorithms: ['RS256'] }) as JsonBodyType
-        const recieveTime = await new Date()
+        const recieveTime = new Date()
         const sendTime = new Date(time)
         const totalTime = new Date(Math.abs(sendTime.getTime() - recieveTime.getTime()))
         console.log({
@@ -34,11 +35,11 @@ app.post('/', async (req: Request, res: Response) => {
             Total_time: `${totalTime.getUTCHours()}h:${totalTime.getMinutes()}M:${totalTime.getSeconds()}s:${totalTime.getMilliseconds()}z`,
             Data: data
         })
-        console.log('-------------------')  
-        return
+        console.log(chalk.blue('-------------------'))  
+        return res.send({ result: 'Received data' })
     } catch {
-        console.error(`Reject data\n------------------`)
-        return
+        console.error(chalk.red(`Reject data\n------------------`))
+        return res.send({ result: 'Reject data' })
     }
 })
 

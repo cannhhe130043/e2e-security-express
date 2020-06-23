@@ -11,26 +11,17 @@
 ### To start server request:
 ```bash
     cd server/server-request 
-    tsnd src/server.ts 
+    npm start
 ```
 
 ### To start server response:
 ```bash
     cd server/server-response
-    tsnd src/server.ts
+    npm start
 ```
 
 ### To start fake server response:
 ```bash
     cd server/server-fake-res
-    tsnd src/server.ts
-```
-
-### Note: 
-  - Fake server response and server response run on the same port
-
-### To run test ping:
-```bash
-    cd server/server-request 
-    tsnd test/test.ping.ts
+    npm start
 ```
