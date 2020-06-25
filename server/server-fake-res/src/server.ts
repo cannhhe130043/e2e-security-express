@@ -1,7 +1,7 @@
 import express, { Request, Response, response } from 'express'
 import dotenv from 'dotenv'
 import fetch from 'node-fetch'
-import { generatePeople } from './people/person.interface'
+import { generatePeople } from './people/person'
 import { readFileSync } from 'fs'
 import jwt from 'jsonwebtoken'
 dotenv.config()
@@ -26,7 +26,7 @@ app.post('/', async (req: Request, res: Response) => {
         const data = generatePeople(3)
         const time = new Date()
         const payload: JsonBodyType = { data, time }
-        const privateKey = readFileSync('src/keyPair/private.key.txt', 'utf8')
+        const privateKey = readFileSync('src/keys/private.key', 'utf8')
         const token = jwt.sign(payload, privateKey, { algorithm: 'RS256' })
         const url: string = 'http://localhost:3000'
         const response = await fetch(url, {

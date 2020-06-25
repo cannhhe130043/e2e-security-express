@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import { readFileSync } from 'fs'
 import fetch from 'node-fetch'
-import { generatePeople } from './people/person.interface'
+import { generatePeople } from './people/person'
 import { json } from 'body-parser'
 
 type JsonBodyType = {
@@ -30,7 +30,7 @@ app.post('/', async (req: Request, res: Response) => {
     const data = generatePeople(3)
     const time = new Date()
     const payload: JsonBodyType = { data, time }
-    const privateKey = readFileSync('src/keyPair/private.key.txt', 'utf8')
+    const privateKey = readFileSync('src/keys/private.key', 'utf8')
     const token = jwt.sign(payload, privateKey, { algorithm: 'RS256' })
     const url: string = 'http://localhost:3000'
     const response = await fetch(url, {
@@ -47,7 +47,7 @@ app.post('/', async (req: Request, res: Response) => {
 })
 
 app.get('/getPublicKey', (req: Request, res: Response) => {
-    const publicKey = readFileSync('src/keyPair/public.key.txt', 'utf8')
+    const publicKey = readFileSync('src/keys/public.key', 'utf8')
     return res.send({ publicKey })
 })
 
