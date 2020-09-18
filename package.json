@@ -1,0 +1,27 @@
+{
+  "name": "e2e-security-express",
+  "version": "1.0.0",
+  "description": "```bash\r     git clone git@bitbucket.org:missingcorner/e2e_security.git\r ```",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-received": "yarn workspace @e2e/server-received",
+    "server-send": "yarn workspace @e2e/server-send"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cannhhe130043/e2e-security-express.git"
+  },
+  "workspaces": {
+    "packages": [
+      "*"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cannhhe130043/e2e-security-express/issues"
+  },
+  "homepage": "https://github.com/cannhhe130043/e2e-security-express#readme"
+}
